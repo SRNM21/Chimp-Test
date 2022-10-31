@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<DialogPane prefHeight="264.0" prefWidth="400.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.memorytest.ExitDialogController">
+   <content>
+      <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="250.0" prefWidth="400.0" style="-fx-background-color: black;">
+         <VBox alignment="CENTER" prefHeight="228.0" prefWidth="400.0">
+            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="71.0" prefWidth="255.0" text="Confirm Exit" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font size="30.0" />
+               </font>
+               <VBox.margin>
+                  <Insets top="20.0" />
+               </VBox.margin>
+            </Label>
+            <Label alignment="CENTER" prefHeight="43.0" prefWidth="264.0" text="Are you sure you want to Exit?" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+         </VBox>
+         <HBox alignment="CENTER" prefHeight="121.0" prefWidth="380.0">
+            <Button fx:id="dialogExitButton" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#confirmExit" prefHeight="40.0" prefWidth="150.0" style="-fx-alignment: center; -fx-background-color: white; -fx-border-radius: 20; -fx-background-radius: 20;" text="Exit" textAlignment="CENTER">
+               <HBox.margin>
+                  <Insets right="15.0" />
+               </HBox.margin>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Button>
+            <Button fx:id="dialogCancelButton" mnemonicParsing="false" onAction="#cancelExit" prefHeight="40.0" prefWidth="150.0" style="-fx-background-color: black; -fx-border-radius: 20; -fx-border-color: white; -fx-border-width: 3;" text="Cancel" textFill="WHITE">
+               <HBox.margin>
+                  <Insets left="15.0" />
+               </HBox.margin>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Button>
+         </HBox>
+      </VBox>
+   </content>
+</DialogPane>

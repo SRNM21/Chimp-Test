@@ -1,0 +1,7 @@
+Manifest-Version: 1.0
+Main-Class: com.example.memorytest.ChimpTestApplication
+Class-Path: javafx-graphics-18.0.1-win.jar javafx-fxml-18.0.1-win.jar ja
+ vafx-controls-18.0.1-win.jar javafx-base-18.0.1.jar javafx-controls-18.
+ 0.1.jar javafx-graphics-18.0.1.jar javafx-fxml-18.0.1.jar javafx-base-1
+ 8.0.1-win.jar javafx-media-18.0.1.jar javafx-media-18.0.1-win.jar
+
