@@ -99,9 +99,7 @@ public class TestController {
      */
     public void startGame(){
 
-        if (SFX_On){
-            gameStart.play();
-        }
+        if (SFX_On) gameStart.play();
 
         vbox.getChildren().clear();
 
@@ -116,20 +114,15 @@ public class TestController {
         selectButtons();
 
         int timer;
-        if (maxSlots > 20) {
-            timer = 4;
-        } else if (maxSlots > 10) {
-            timer = 3;
-        } else {
-            timer = 2;
-        }
+        if (maxSlots > 20) timer = 4;
+        else if (maxSlots > 10) timer = 3;
+        else timer = 2;
 
         Timeline coverSlots = new Timeline(new KeyFrame(Duration.seconds(timer), e -> {
 
             for (int i = 0; i < slots.length; i++) {
                 if (slots[i] != 0) buttonArray[i].setStyle(styleCovered);
             }
-
         }));
 
         coverSlots.play();
@@ -151,8 +144,8 @@ public class TestController {
                     int buttonID = Integer.parseInt(button.getId());
 
                     if (slots[buttonID] == enumeration){
-
                         enumeration++;
+                        
                         if (enumeration != maxSlots + 1 && SFX_On) {
                             slotsCLicked.play();
                         }
@@ -161,32 +154,24 @@ public class TestController {
                         buttonArray[buttonID].setVisible(false);
 
                         if (enumeration == maxSlots + 1){
-
-                            if (SFX_On) {
-                                roundComplete.play();
-                            }
+                            if (SFX_On) roundComplete.play();
 
                             ++maxSlots;
                             numbersLabel.setText(String.valueOf(maxSlots));
 
                             pausePhase();
                         }
-
                     } else {
-
                         ++strikes;
 
-                        if (strikes != 3 && SFX_On) {
-                            strike.play();
-                        } else if (strikes == 3 && SFX_On){
-                            gameOver.play();
-                        }
+                        if (strikes != 3 && SFX_On) strike.play();
+                        else if (strikes == 3 && SFX_On) gameOver.play();
 
                         lightStrike();
                         pausePhase();
-
                     }
                 });
+                
                 gridPane.add(button, COLUMN, ROW);
                 buttonArray[number] = button;
             }
@@ -199,7 +184,6 @@ public class TestController {
         Random rand = new Random();
 
         for (int i = 1; i <= maxSlots; i++){
-
             int random;
             do {
                 random = rand.nextInt(36);
@@ -214,7 +198,6 @@ public class TestController {
         }
     }
     public void nextRound(){
-
         vbox.getChildren().clear();
 
         enumeration = 1;
@@ -226,7 +209,6 @@ public class TestController {
     }
 
     public void restart(){
-
         vbox.getChildren().clear();
 
         strikes = 0;
@@ -234,6 +216,7 @@ public class TestController {
         enumeration = 1;
         Arrays.fill(slots, 0);
         numbersLabel.setText(String.valueOf(maxSlots));
+        
         strike1.setFill(Color.BLACK);
         strike2.setFill(Color.BLACK);
         strike3.setFill(Color.BLACK);
@@ -243,12 +226,12 @@ public class TestController {
     }
 
     public void pausePhase(){
-
         vbox.getChildren().clear();
 
         String headerText;
         String leftBtnText;
         String rightBtnText;
+        
         Label header = new Label();
         HBox hBox = new HBox(20);
         VBox p_vbox = new VBox(20);
@@ -260,17 +243,11 @@ public class TestController {
             leftBtnText = "Continue";
             headerText = "Numbers " + maxSlots;
             leftButton.setOnAction(event -> {
-                if (SFX_On){
-                    buttonsClick.play();
-                }
-
+                if (SFX_On) buttonsClick.play();
                 nextRound();
             });
             rightButton.setOnAction(event -> {
-                if (SFX_On){
-                    buttonsClick.play();
-                }
-
+                if (SFX_On) buttonsClick.play();
                 restart();
             });
         } else {
@@ -278,16 +255,11 @@ public class TestController {
             leftBtnText = "Retry";
             headerText = "Game Over!";
             leftButton.setOnAction(event -> {
-                if (SFX_On){
-                    buttonsClick.play();
-                }
-
+                if (SFX_On) buttonsClick.play();
                 restart();
             });
             rightButton.setOnAction(event -> {
-                if (SFX_On){
-                    buttonsClick.play();
-                }
+                if (SFX_On) buttonsClick.play();
 
                 try {
                     exitButton();
@@ -332,7 +304,6 @@ public class TestController {
         @BUTTONS
      */
     public void SFXButton() {
-
         Image SFX_ON_UI = new Image("file:src/main/resources/com/example/Images/SFX_ON.png");
         Image SFX_OFF_UI = new Image("file:src/main/resources/com/example/Images/SFX_OFF.png");
         ImageView ON = new ImageView(SFX_ON_UI);
@@ -355,10 +326,7 @@ public class TestController {
     }
 
     public void exitButton() throws IOException {
-
-        if (SFX_On){
-            buttonsClick.play();
-        }
+        if (SFX_On) buttonsClick.play();
 
         FXMLLoader fxmlLoader = new FXMLLoader();
         fxmlLoader.setLocation(getClass().getResource("exitDialog.fxml"));
@@ -380,7 +348,6 @@ public class TestController {
         @STRIKE_INDICATOR
      */
     public void lightStrike(){
-
         Circle strikeIndicator = null;
 
         switch (strikes) {
